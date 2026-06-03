@@ -1,0 +1,1712 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dra. Florencia N. Martínez | Abogada</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E8C97A;
+    --gold-dark: #8B6914;
+    --dark: #0A0A0A;
+    --dark2: #111111;
+    --dark3: #181818;
+    --dark4: #222222;
+    --text: #E8E0D0;
+    --text-muted: #9A8F80;
+    --white: #F5F0E8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--dark);
+    color: var(--text);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 20px 40px;
+    position: relative;
+    background: #0A0A0A;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 59px, rgba(201,168,76,0.03) 59px, rgba(201,168,76,0.03) 60px),
+      repeating-linear-gradient(90deg, transparent, transparent 59px, rgba(201,168,76,0.03) 59px, rgba(201,168,76,0.03) 60px);
+    pointer-events: none;
+  }
+
+
+
+  .hero-ornament {
+    width: 1px;
+    height: 80px;
+    background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+    margin: 0 auto 40px;
+    animation: fadeIn 1.5s ease forwards;
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.4rem, 8vw, 5rem);
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    color: var(--white);
+    line-height: 1.1;
+    animation: slideUp 1s ease 0.2s both;
+  }
+
+  .hero-title span {
+    color: var(--gold);
+  }
+
+  .hero-subtitle {
+    font-size: clamp(0.7rem, 2.5vw, 0.85rem);
+    font-weight: 500;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-top: 14px;
+    animation: slideUp 1s ease 0.4s both;
+  }
+
+  .hero-divider {
+    width: 80px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    margin: 30px auto;
+    animation: expand 1s ease 0.6s both;
+  }
+
+  .hero-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(0.95rem, 3vw, 1.2rem);
+    font-style: italic;
+    color: var(--text-muted);
+    max-width: 500px;
+    line-height: 1.7;
+    animation: slideUp 1s ease 0.8s both;
+  }
+
+  .hero-institution {
+    margin-top: 20px;
+    font-size: clamp(0.62rem, 2vw, 0.72rem);
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    animation: slideUp 1s ease 1s both;
+  }
+
+  /* ===== NAV PILLS ===== */
+  .nav-pills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 50px 20px 20px;
+    position: relative;
+    z-index: 10;
+  }
+
+  .pill {
+    padding: 10px 22px;
+    border: 1px solid rgba(201,168,76,0.3);
+    border-radius: 2px;
+    background: rgba(201,168,76,0.04);
+    color: var(--gold-light);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pill::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(201,168,76,0.08);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+
+  .pill:hover::before, .pill:active::before { transform: scaleX(1); }
+
+  .pill:hover, .pill:active {
+    border-color: var(--gold);
+    color: var(--gold);
+    box-shadow: 0 0 20px rgba(201,168,76,0.15);
+  }
+
+  /* ===== SECTIONS ===== */
+  .section {
+    padding: 70px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+    display: none;
+  }
+
+  .section.active { display: block; }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  .section-label {
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 6vw, 3rem);
+    font-weight: 300;
+    color: var(--white);
+    line-height: 1.2;
+  }
+
+  .section-rule {
+    width: 50px;
+    height: 1px;
+    background: var(--gold);
+    margin: 20px auto 0;
+  }
+
+  /* ===== CARDS ===== */
+  .card {
+    background: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+    border: 1px solid rgba(201,168,76,0.15);
+    border-radius: 2px;
+    padding: 30px;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .card:hover {
+    border-color: rgba(201,168,76,0.35);
+    background: linear-gradient(135deg, rgba(201,168,76,0.04), rgba(255,255,255,0.01));
+  }
+
+  .card:hover::before { opacity: 1; }
+
+  .card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.1rem, 3.5vw, 1.5rem);
+    font-weight: 500;
+    color: var(--white);
+    margin-bottom: 6px;
+  }
+
+  .card-subtitle {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 14px;
+  }
+
+  .card-date {
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+  }
+
+  .card-text {
+    font-size: 0.82rem;
+    line-height: 1.85;
+    color: var(--text-muted);
+  }
+
+  .card-tag {
+    display: inline-block;
+    padding: 4px 12px;
+    border: 1px solid rgba(201,168,76,0.25);
+    border-radius: 2px;
+    font-size: 0.55rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin: 4px 4px 0 0;
+  }
+
+  /* ===== SKILLS GRID ===== */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+  }
+
+  .skill-item {
+    border: 1px solid rgba(201,168,76,0.2);
+    padding: 18px 15px;
+    text-align: center;
+    transition: all 0.3s ease;
+    background: rgba(201,168,76,0.02);
+  }
+
+  .skill-item:hover {
+    border-color: var(--gold);
+    background: rgba(201,168,76,0.06);
+  }
+
+  .skill-icon {
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .skill-name {
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  /* ===== COURSE LIST ===== */
+  .course-item {
+    display: flex;
+    gap: 18px;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(201,168,76,0.08);
+    align-items: flex-start;
+  }
+
+  .course-dot {
+    width: 5px;
+    height: 5px;
+    background: var(--gold);
+    border-radius: 50%;
+    margin-top: 7px;
+    flex-shrink: 0;
+  }
+
+  .course-content { flex: 1; }
+
+  .course-name {
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.5;
+  }
+
+  .course-source {
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    margin-top: 3px;
+    letter-spacing: 0.05em;
+  }
+
+  /* ===== PUBLICATION ===== */
+  .publication-card {
+    border: 1px solid rgba(201,168,76,0.25);
+    padding: 35px;
+    background: linear-gradient(135deg, rgba(201,168,76,0.05), rgba(0,0,0,0.2));
+    position: relative;
+    margin-bottom: 20px;
+  }
+
+  .publication-card::after {
+    content: '"';
+    position: absolute;
+    right: 25px;
+    top: 15px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 5rem;
+    color: rgba(201,168,76,0.1);
+    line-height: 1;
+  }
+
+  .pub-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.2rem, 4vw, 1.7rem);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--white);
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+
+  .pub-meta {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  /* ===== BADGE ===== */
+  .badge-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+  }
+
+  .badge {
+    border: 1px solid rgba(201,168,76,0.2);
+    padding: 22px 18px;
+    text-align: center;
+    transition: all 0.3s ease;
+    background: rgba(0,0,0,0.3);
+  }
+
+  .badge:hover {
+    border-color: var(--gold);
+    background: rgba(201,168,76,0.05);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  }
+
+  .badge-icon { font-size: 1.8rem; margin-bottom: 10px; display: block; }
+
+  .badge-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--white);
+    margin-bottom: 5px;
+  }
+
+  .badge-desc {
+    font-size: 0.62rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    letter-spacing: 0.05em;
+  }
+
+  /* ===== CONTACT ===== */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+  }
+
+  .contact-card {
+    border: 1px solid rgba(201,168,76,0.2);
+    padding: 22px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    transition: all 0.3s ease;
+    text-decoration: none;
+  }
+
+  .contact-card:hover {
+    border-color: var(--gold);
+    background: rgba(201,168,76,0.05);
+  }
+
+  .contact-icon { font-size: 1.3rem; }
+
+  .contact-label {
+    font-size: 0.58rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    font-weight: 600;
+  }
+
+  .contact-value {
+    font-size: 0.78rem;
+    color: var(--text);
+    margin-top: 3px;
+  }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    text-align: center;
+    padding: 50px 20px;
+    border-top: 1px solid rgba(201,168,76,0.1);
+    margin-top: 40px;
+  }
+
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 300;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+  }
+
+  .footer-copy {
+    font-size: 0.62rem;
+    color: var(--text-muted);
+    margin-top: 10px;
+    letter-spacing: 0.1em;
+  }
+
+  /* ===== ANIMATIONS ===== */
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes expand {
+    from { width: 0; opacity: 0; }
+    to { width: 80px; opacity: 1; }
+  }
+
+  .fade-in { animation: slideUp 0.6s ease both; }
+
+  /* ===== PROFILE BIO ===== */
+  .profile-bio {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1rem, 3vw, 1.25rem);
+    font-weight: 300;
+    line-height: 1.9;
+    color: var(--text-muted);
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 40px;
+  }
+
+  .highlight { color: var(--gold-light); font-style: italic; }
+
+  /* ===== SCROLL ARROW ===== */
+  .scroll-hint {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    animation: fadeIn 2s ease 1.5s both;
+  }
+
+  .scroll-hint span {
+    font-size: 0.55rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .scroll-arrow {
+    width: 18px;
+    height: 18px;
+    border-right: 1px solid var(--gold);
+    border-bottom: 1px solid var(--gold);
+    transform: rotate(45deg);
+    animation: bounce 2s infinite;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: rotate(45deg) translateY(0); }
+    50% { transform: rotate(45deg) translateY(5px); }
+  }
+
+  /* Mobile adjustments */
+  @media (max-width: 600px) {
+    .card { padding: 22px 18px; }
+    .publication-card { padding: 25px 20px; }
+    .nav-pills { gap: 8px; }
+    .pill { padding: 9px 16px; font-size: 0.6rem; }
+  }
+
+  /* ===== TOUCH GLOW ===== */
+  .card.touched,
+  .badge.touched,
+  .publication-card.touched,
+  .skill-item.touched {
+    border-color: var(--gold) !important;
+    background: linear-gradient(135deg, rgba(201,168,76,0.12), rgba(201,168,76,0.04)) !important;
+    box-shadow: 0 0 30px rgba(201,168,76,0.2), inset 0 0 20px rgba(201,168,76,0.05) !important;
+    transition: all 0.15s ease !important;
+  }
+
+  .card:active,
+  .badge:active,
+  .publication-card:active,
+  .skill-item:active {
+    border-color: var(--gold) !important;
+    background: linear-gradient(135deg, rgba(201,168,76,0.12), rgba(201,168,76,0.04)) !important;
+    box-shadow: 0 0 30px rgba(201,168,76,0.2), inset 0 0 20px rgba(201,168,76,0.05) !important;
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div id="hero-glow" style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 80% 50% at 50% 0%, rgba(201,168,76,0.35) 0%, rgba(201,168,76,0.14) 40%, rgba(201,168,76,0.04) 65%, transparent 80%);transition:opacity 0.3s ease;"></div>
+  <div class="hero-ornament"></div>
+  <h1 class="hero-title">Dra. Florencia N.<br><span>Martínez</span></h1>
+  <p class="hero-subtitle">Abogada</p>
+  <div class="hero-divider"></div>
+  <p class="hero-tagline">Derecho Penal · Cibercrimen y Evidencia Digital · Litigación Oral Penal</p>
+  <p class="hero-institution">Ministerio Público Fiscal de Mendoza · Segunda Circunscripción Judicial</p>
+  <div class="scroll-hint">
+    <span>deslizar</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</div>
+
+<!-- NAV -->
+<div class="nav-pills">
+  <a class="pill" onclick="showSection('perfil')">✦ Perfil</a>
+  <a class="pill" onclick="showSection('laboral')">⚖ Experiencia</a>
+  <a class="pill" onclick="showSection('academica')">🎓 Académica</a>
+  <a class="pill" onclick="showSection('cursos')">📜 Cursos</a>
+  <a class="pill" onclick="showSection('publicaciones')">✍ Publicaciones</a>
+  <a class="pill" onclick="showSection('habilidades')">◈ Habilidades</a>
+  <a class="pill" onclick="showSection('tech')">⌨ Desarrollo</a>
+
+</div>
+
+<!-- ===== PERFIL ===== -->
+<section class="section" id="perfil">
+  <div class="section-header">
+    <span class="section-label">01 — Sobre mí</span>
+    <h2 class="section-title">Perfil Profesional</h2>
+    <div class="section-rule"></div>
+  </div>
+
+  <p class="profile-bio">
+    Abogada con ingreso a <span class="highlight">planta permanente del Ministerio Público Fiscal</span> a los 23 años por concurso público. Graduada a los 24 años por la Universidad de Mendoza. <span class="highlight">Especialista en ciberdelitos y evidencia digital por la Boston University</span>, orientada al Derecho Penal y litigante en Derecho Penal. Comprometida con la excelencia jurídica y la innovación en la justicia.
+  </p>
+
+  <div class="badge-grid">
+    <div class="badge">
+      <span class="badge-icon">⚖️</span>
+      <div class="badge-title">Litigación Estratégica</div>
+      <div class="badge-desc">Sistema acusatorio adversarial. Audiencias preliminares y juicio oral.</div>
+    </div>
+    <div class="badge">
+      <span class="badge-icon">💻</span>
+      <div class="badge-title">Delitos Informáticos</div>
+      <div class="badge-desc">Ciberdelitos, evidencia digital y análisis forense. Boston University.</div>
+    </div>
+    <div class="badge">
+      <span class="badge-icon">🔍</span>
+      <div class="badge-title">Investigación Penal</div>
+      <div class="badge-desc">Instrucción de causas complejas. Diseño y ejecución de teoría del caso.</div>
+    </div>
+    <div class="badge">
+      <span class="badge-icon">📢</span>
+      <div class="badge-title">Litigación Oral y Oratoria Penal</div>
+      <div class="badge-desc">Competidora a nivel nacional — Concurso Nacional Universitario de Litigación Penal (CNULP) del INECIP.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== LABORAL ===== -->
+<section class="section" id="laboral">
+  <div class="section-header">
+    <span class="section-label">02 — Trayectoria</span>
+    <h2 class="section-title">Experiencia Laboral</h2>
+    <div class="section-rule"></div>
+  </div>
+
+  <div class="card">
+    <p class="card-date">Agosto 2024 — Presente</p>
+    <h3 class="card-title">Ministerio Público Fiscal de Mendoza</h3>
+    <p class="card-subtitle">Fiscalía de Instrucción y Delitos Tecnológicos · Segunda Circunscripción Judicial</p>
+    <p class="card-text">
+      Ejecución de investigaciones penales bajo el sistema acusatorio adversarial. Recepción de denuncias y testimoniales. Ejecución de imputaciones formales, declaraciones informativas y notificaciones procesales.<br><br>
+      <strong style="color:var(--text)">Tareas destacadas:</strong> Redacción de recursos complejos (casación, apelación, reposición). Elaboración de requerimientos de citación a juicio, sobreseimientos y órdenes de detención. Diseño de teoría del caso y ofrecimiento de prueba para audiencias preliminares. Gestión de causas de alta complejidad y ciberdelitos.
+    </p>
+    <div style="margin-top:18px">
+      <span class="card-tag">Planta Permanente</span>
+      <span class="card-tag">Ingreso por Concurso Público</span>
+      <span class="card-tag">Ciberdelitos</span>
+      <span class="card-tag">Litigación Oral</span>
+    </div>
+  </div>
+
+  <div class="card" style="border-color: rgba(201,168,76,0.25);">
+    <p class="card-date">2022</p>
+    <h3 class="card-title">Tallerista · Perspectiva de Género</h3>
+    <p class="card-subtitle">Área de la Mujer · Municipio de San Rafael</p>
+    <p class="card-text">Disertante en ciclo de 5 charlas junto a equipo legal en el marco del Programa de Multiplicadores en Educación Sexual Integral (ESI). Asociación Civil Orgulloses de Construir Comunidad.</p>
+  </div>
+
+  <div class="card" style="border-color: rgba(201,168,76,0.25);">
+    <p class="card-date">2020</p>
+    <h3 class="card-title">Expositor · Litigio Internacional</h3>
+    <p class="card-subtitle">Facultad de Derecho UNCuyo</p>
+    <p class="card-text">Carácter: Expositor / Disertante. Carga total: 112 horas. Curso Virtual en Litigio Internacional.</p>
+  </div>
+</section>
+
+<!-- ===== ACADÉMICA ===== -->
+<section class="section" id="academica">
+  <div class="section-header">
+    <span class="section-label">03 — Formación</span>
+    <h2 class="section-title">Formación Académica</h2>
+    <div class="section-rule"></div>
+  </div>
+
+  <div class="card">
+    <p class="card-date">Egresada 2025</p>
+    <h3 class="card-title">Abogada</h3>
+    <p class="card-subtitle">Universidad de Mendoza</p>
+    <p class="card-text">Graduada a los 24 años de edad. Formación en Derecho con orientación en Derecho Penal Económico y Criminología.</p>
+    <div style="margin-top:14px">
+      <span class="card-tag">Título de Grado</span>
+      <span class="card-tag">Diplomada — Litigación Oral</span>
+      <span class="card-tag">Diplomada — Ejecución Penal</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <p class="card-date">En curso · 2025</p>
+    <h3 class="card-title">Especialización en Ciberdelitos y Evidencia Digital</h3>
+    <p class="card-subtitle">Center for Cybercrime Investigation and Cybersecurity · Boston University · Estados Unidos</p>
+    <p class="card-text">Programa de especialización internacional de cuatro meses de duración, brindado por Boston University en colaboración con el Center for Cybercrime Investigation and Cybersecurity. Formación avanzada en investigación de delitos informáticos, cadena de custodia digital y análisis forense de evidencia electrónica.</p>
+    <div style="margin-top:14px">
+      <span class="card-tag">Internacional</span>
+      <span class="card-tag">Boston University · EE.UU.</span>
+      <span class="card-tag">Evidencia Digital</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <p class="card-date">2022</p>
+    <h3 class="card-title">Seminario Teórico-Práctico de Derecho de Ejecución Penal</h3>
+    <p class="card-subtitle">Facultad de Derecho · UNCuyo</p>
+    <p class="card-text">Docente: Mag. Claudia Cesaroni. Duración: 18 clases. Temáticas: Ejecución penal de menores, judicialización de la pena, políticas postpenitenciarias, ideologías "re" (Dr. Zaffaroni), práctica de audiencias de libertad condicional, perspectiva de género y maternidad en encierro.</p>
+  </div>
+
+  <div class="card">
+    <p class="card-date">2020</p>
+    <h3 class="card-title">Competencias Internacionales de Derechos Humanos CUYUM</h3>
+    <p class="card-subtitle">Facultad de Derecho · UNCuyo</p>
+    <p class="card-text">Participación en la V Edición de las Competencias Internacionales de Derechos Humanos. Modalidad competitiva. Competidora en torneo de litigación oral penal.</p>
+    <div style="margin-top:14px">
+      <span class="card-tag">Litigación Oral Competitiva</span>
+      <span class="card-tag">Derechos Humanos</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <p class="card-date">2022</p>
+    <h3 class="card-title">Modelo de Naciones Unidas</h3>
+    <p class="card-subtitle">Asociación Conciencia</p>
+    <p class="card-text">Carácter: Organizador. Participación activa en el armado y coordinación del Modelo de Naciones Unidas, fomentando el debate jurídico y político internacional.</p>
+  </div>
+
+  <div class="card">
+    <p class="card-date">2022</p>
+    <h3 class="card-title">XXII Encuentro Regional "Uniendo Metas"</h3>
+    <p class="card-subtitle">Asociación Conciencia · Sede San Rafael</p>
+    <p class="card-text">Participante Universitaria. Carga: 40 horas reloj. Formación en liderazgo, ciudadanía y participación cívica.</p>
+  </div>
+
+  <!-- Idiomas -->
+  <div class="card" style="margin-top:30px">
+    <h3 class="card-title">Idiomas</h3>
+    <p class="card-subtitle" style="margin-bottom:18px">Formación acreditada</p>
+    <div class="badge-grid">
+      <div class="badge">
+        <span class="badge-icon">🇬🇧</span>
+        <div class="badge-title">Inglés</div>
+        <div class="badge-desc">Instituto Cambridge</div>
+      </div>
+      <div class="badge">
+        <span class="badge-icon">🇮🇹</span>
+        <div class="badge-title">Italiano</div>
+        <div class="badge-desc">Universidad de Mendoza · Dante Alighieri</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CURSOS ===== -->
+<section class="section" id="cursos">
+  <div class="section-header">
+    <span class="section-label">04 — Posgrado & Capacitación</span>
+    <h2 class="section-title">Cursos y Capacitaciones</h2>
+    <div class="section-rule"></div>
+  </div>
+
+  <!-- DIPLOMATURAS -->
+  <div class="card">
+    <p class="card-subtitle">Diplomaturas</p>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Diplomatura Bimodal en Prácticas de Litigación Oral en el Sistema Acusatorio Adversarial <span style="color:var(--gold);font-size:0.65rem;font-weight:700"> · DIPLOMADA</span></div>
+        <div class="course-source">Universidad Nacional del Chaco Austral (UNCAUS) · Dic 2022 · 100 hs. cátedra · Dir. Dr. Ernesto Javier Azcona</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Diplomatura Derecho Penal Especial <span style="color:var(--gold);font-size:0.65rem;font-weight:700"> · DIPLOMADA</span></div>
+        <div class="course-source">FORMARTE · Universidad Nacional del Chaco Austral (UNCAUS)</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Especialización en Ciberdelitos y Evidencia Digital <span style="color:var(--gold);font-size:0.65rem;font-weight:700"> · FINALIZADO · ESPECIALISTA en Ciberdelitos y Evidencia Digital</span></div>
+        <div class="course-source">Center for Cybercrime Investigation and Cybersecurity · Boston University · EE.UU. · 4 meses</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LITIGACIÓN COMPETITIVA -->
+  <div class="card">
+    <p class="card-subtitle">Litigación Oral Competitiva</p>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">XIII Concurso Nacional Universitario de Litigación Penal (CNULP) <span style="color:var(--gold);font-size:0.65rem;font-weight:700"> · LITIGANTE</span></div>
+        <div class="course-source">INECIP y CENLU · Oct–Nov 2023 · Fase virtual y presencial · Representando a Universidad de Mendoza Sede San Rafael</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Encuentro Universitario de Litigación Penal del Centro <span style="color:var(--gold);font-size:0.65rem;font-weight:700"> · PONENTE</span></div>
+        <div class="course-source">Facultad de Derecho · Universidad Nacional de Córdoba · May–Jun 2024 · 9 hs. · Ciudad de Córdoba</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Curso Virtual en Litigio Internacional <span style="color:var(--gold);font-size:0.65rem;font-weight:700"> · LITIGANTE</span></div>
+        <div class="course-source">Universidad Nacional de Cuyo · Ago–Nov 2020 · 112 hs. totales</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">V Edición — Competencias Internacionales de Derechos Humanos CUYUM</div>
+        <div class="course-source">Facultad de Derecho · UNCuyo · 2020 · Modalidad virtual competitiva</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2026 -->
+  <div class="card">
+    <p class="card-subtitle">2026</p>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Tecnología aplicada a la investigación</div>
+        <div class="course-source">MPF Mendoza · Mar 2026 · 2 hs. · Dr. Alejandro Iturbide y Scrio. Mauricio Carmona</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Denuncia, declaración testimonial y pautas de imputación penal <span style="color:var(--gold);font-size:0.65rem;font-weight:700"> · APROBADO</span></div>
+        <div class="course-source">MPF Mendoza · Mar 2026 · 3 hs. cátedra · Dres. García Mango y Espeche</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Análisis forense <span style="color:var(--gold);font-size:0.65rem;font-weight:700"> · APROBADO</span></div>
+        <div class="course-source">Accenture · Mar 2026 · 3,3 hs.</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Fundamentos de Ciberseguridad I <span style="color:var(--gold);font-size:0.65rem;font-weight:700"> · APROBADO</span></div>
+        <div class="course-source">Accenture · Mar 2026 · 3 hs.</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Masterclass: Ciclo de Ciberguerra y Ciberdefensa</div>
+        <div class="course-source">Microjuris · Mar 2026 · 3 encuentros</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Tolerancia cero a la delincuencia y su interpretación a la luz del proyecto del Código Penal 2025</div>
+        <div class="course-source">Poder Judicial de Tucumán · Centro de Especialización y Capacitación Judicial · Abr 2026</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Consideraciones sobre el inicio de la tentativa</div>
+        <div class="course-source">UNNE y Universidad de la Cuenca del Plata · Abr 2026 · Prof. Dr. Luis Greco</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Jornadas de Cooperación Internacional: Grooming</div>
+        <div class="course-source">MPF Mendoza · May 2026 · 6 hs. cátedra</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">COELSA <span style="color:var(--gold);font-size:0.65rem;font-weight:700"> · Actualización</span></div>
+        <div class="course-source">MPF Mendoza · May 2026 · 2 hs.</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Ciclo de charlas: Detección de riesgos y posvención en la problemática del suicidio</div>
+        <div class="course-source">Centro de Capacitación Judicial "Dr. Manuel A. Sáez" · Mar–Abr 2026</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2025 -->
+  <div class="card">
+    <p class="card-subtitle">2025</p>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Teoría del Delito vs Teoría de los Sistemas</div>
+        <div class="course-source">Fundación Delta, UNNE y Facultad de Derecho · Ago 2025</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Juicio por jurados en Mendoza y la República Argentina. Nuevas tendencias</div>
+        <div class="course-source">Centro de Capacitación Judicial "Dr. Manuel A. Sáez" · Ago 2025 · 2 hs.</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Jornada de Capacitación en Derecho Procesal Penal</div>
+        <div class="course-source">Colegio Público de Abogados y Procuradores · Jul–Ago 2025 · 6 hs.</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Guía de buenas prácticas judiciales de la Suprema Corte de Justicia</div>
+        <div class="course-source">Instituto de Estudios Judiciales · SCJBA · Ago 2025–Jul 2026 · 15 hs.</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Decreto de Avoque, Implicancias Procesales <span style="color:var(--gold);font-size:0.65rem;font-weight:700"> · APROBADO</span></div>
+        <div class="course-source">MPF Mendoza · May–Jun 2025 · 3 hs. · Dr. Oscar Malla</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">El análisis de las testimoniales en juicio adversarial</div>
+        <div class="course-source">Corte Suprema de Justicia de Tucumán · May 2025 · 2 hs. · Dr. Diego Ernesto Lammoglia</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Víctimas de Delitos en el Proceso Penal Juvenil</div>
+        <div class="course-source">Ministerio Público de la Defensa y Pupilar · May 2025 · 2 hs. · Dr. Pablo Alejandro Barbirotto</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Criptomonedas y Lavado de Activos</div>
+        <div class="course-source">Dirección de Perfeccionamiento y Modernización, MPF · Jun 2025 · 3 hs. · Dres. Argibay Molina y Cabrera</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Delitos contra la propiedad</div>
+        <div class="course-source">MPF Mendoza · Abr 2025 · 3 hs. · Dres. Oscar Malla y Ezequiel Morando</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Evidencia digital. Cooperación internacional</div>
+        <div class="course-source">MPF Mendoza · Mar 2026 · 3 hs. · Antonio Segovia Arancibia</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Ciclo de micro aprendizajes: Comunicación asertiva y gestión emocional <span style="color:var(--gold);font-size:0.65rem;font-weight:700"> · APROBADO</span></div>
+        <div class="course-source">MPF Mendoza · Mar 2025 · 3 hs. · Lic. María Laura Lemos</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Ciclo de micro aprendizajes: Pautas para la investigación penal preparatoria en menores <span style="color:var(--gold);font-size:0.65rem;font-weight:700"> · APROBADO</span></div>
+        <div class="course-source">MPF Mendoza · Mar 2025 · 3 hs. · Dras. Curri y Marti</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Principales modificaciones – Ley Impositiva 9597, año 2025 de Mendoza</div>
+        <div class="course-source">Colegio Notarial de Mendoza · Feb 2025 · Dr. Leonardo Saumell</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Capacitación en perspectiva de protección de derechos de NNA — Ley Lucio</div>
+        <div class="course-source">Gobierno de Mendoza · IPAP · 35 hs.</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Introducción a la redacción administrativa</div>
+        <div class="course-source">Gobierno de Mendoza · IPAP · 35 hs.</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Reconocimiento en rueda de personas</div>
+        <div class="course-source">Poder Judicial de Tucumán · Centro de Especialización y Capacitación Judicial · Sep 2025 · 2 hs.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2024 -->
+  <div class="card">
+    <p class="card-subtitle">2024</p>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Cibercrimen · Derechos Humanos de NNA (1.ª Cohorte) <span style="color:var(--gold);font-size:0.65rem;font-weight:700"> · APROBADO</span></div>
+        <div class="course-source">Instituto de Formación Judicial "Dr. Juan Bautista Alberdi" · STJ Entre Ríos · Dic 2024 · 1 hs. · Natalia Molina</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Ciclo de micro aprendizajes: Nulidades Procesales en Actas de Procedimiento <span style="color:var(--gold);font-size:0.65rem;font-weight:700"> · APROBADO</span></div>
+        <div class="course-source">MPF Mendoza · Dic 2024 · 3 hs. · Dres. Marzal, Sánchez y Morando</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Aspectos técnicos y jurídicos de los delitos de tenencia y portación de arma de fuego <span style="color:var(--gold);font-size:0.65rem;font-weight:700"> · APROBADO</span></div>
+        <div class="course-source">MPF Mendoza · Dic 2024 · 5 hs. · Dres. Marzal, Sánchez y Estelrich</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Crimen organizado y corrupción en el sistema penal actual</div>
+        <div class="course-source">Corte Suprema de Justicia de Tucumán · Nov 2024 · 2 hs. · Dr. Ricardo A. Basilico</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Cuantificación del daño – Uso de la planilla Acciarri</div>
+        <div class="course-source">Centro de Capacitación Judicial "Dr. Manuel A. Sáez" · Nov 2024 · 9 hs. · Dr. Martín Juárez Ferrer</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Paraderos <span style="color:var(--gold);font-size:0.65rem;font-weight:700"> · APROBADO</span></div>
+        <div class="course-source">MPF Mendoza · Nov 2024 · 3 hs. · Dr. Gustavo Pirrello</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Derecho al olvido</div>
+        <div class="course-source">Facultad de Derecho UNCuyo · Agrupación Kairos · Nov 2024 · Mag. Cintia Bayardi</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Pautas para la Investigación Penal Preparatoria — Unidad Fiscal Correccional</div>
+        <div class="course-source">MPF Mendoza · Oct 2024 · 3 hs. · Dr. Juan Carlos Alessandra</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Grooming</div>
+        <div class="course-source">MPF Mendoza · Sep 2024 · 3 hs. · Dra. Daniela Dupuy</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">La Persona frente a las formas del proceso penal: Mirada de la Defensa Pública</div>
+        <div class="course-source">Ministerio Público de la Defensa y Pupilar · Sep 2024 · 3 hs.</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Investigación Penal Ambiental: Desafíos en la acción civil y reparación en sede penal</div>
+        <div class="course-source">MPF Mendoza · Ago 2024 · 3 hs. · Dra. Johanna Cristallo</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Taller de oratoria: Preparatorio para la elaboración de ponencias</div>
+        <div class="course-source">Colegio Notarial de Mendoza · Jul 2024 · Prof. Lautaro Gómez</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Técnicas especiales de investigación en delitos complejos</div>
+        <div class="course-source">Agrupación de Estudiantes y Trabajadores de Derecho (UBA) · May 2024 · Buenos Aires</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2023 -->
+  <div class="card">
+    <p class="card-subtitle">2023</p>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Procesos restaurativos en el fuero penal. Mediación penal</div>
+        <div class="course-source">Universidad del Aconcagua / INECIP / Suprema Corte de Justicia Mendoza · Sep 2023 · 2 hs.</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Ciclo de charlas "La salud de las mujeres hoy"</div>
+        <div class="course-source">Suprema Corte de Justicia de Mendoza · Dirección de la Mujer, Género y Diversidad "Dra. Carmen María Argibay" · Sep 2023</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Aspectos básicos, teóricos y prácticos del derecho</div>
+        <div class="course-source">Ciencia y Progreso · May–Jun 2023 · 32 hs.</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Régimen de ejecución penal de menores en Mendoza</div>
+        <div class="course-source">UNCuyo · Dic 2023 · 2 hs. · Dra. Claudia Vallejo</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">ONU, Derechos Humanos y los ODS: competencias para organismos internacionales</div>
+        <div class="course-source">Academia Estudiantes Digitales · Abr 2023 · 3,5 hs. · Dr. Julian Madrid y Federica Morici</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2022 -->
+  <div class="card">
+    <p class="card-subtitle">2022</p>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Seminario Teórico-Práctico de Ejecución Penal — "Cárcel y dictadura"</div>
+        <div class="course-source">UNCuyo · Nov 2022 · 2 hs. · Mag. Claudia Cesaroni</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Seminario de Ejecución Penal — "La cárcel: su objetivo declarado y su realidad"</div>
+        <div class="course-source">UNCuyo · Nov 2022 · 2 hs. · Mag. Claudia Cesaroni</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Seminario de Ejecución Penal — Clase magistral: Ideologías "re" y realidad</div>
+        <div class="course-source">UNCuyo · Nov 2022 · 2 hs. · Dr. Eugenio Raúl Zaffaroni</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Seminario de Ejecución Penal — Grupos sobrevulnerados: Especialización de la Ejecución de la Pena</div>
+        <div class="course-source">UNCuyo · Nov 2022 · 2 hs. · Mag. Claudia Cesaroni</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Seminario de Ejecución Penal — Políticas Post Penitenciarias</div>
+        <div class="course-source">UNCuyo · Nov 2022 · 2 hs. · Lic. Jaime Saavedra</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Seminario de Ejecución Penal — Aplicación de la Ley 26.660. Reformas al sistema de Ejecución Penal</div>
+        <div class="course-source">UNCuyo · Nov 2022 · 2 hs. · Mag. Claudia Cesaroni</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Seminario de Ejecución Penal — La experiencia de litigar casos de ejecución penal desde el rol liberal</div>
+        <div class="course-source">UNCuyo · Nov 2022 · 2 hs. · Dr. Fernando Peñaloza</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Temas actuales del Derecho Procesal Penal y su enseñanza en la era digital</div>
+        <div class="course-source">Fundación FORMARTE / Asociación Argentina de Profesores de DPP · Nov 2022</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Herramientas Digitales en el Ecosistema de la Justicia</div>
+        <div class="course-source">Suprema Corte de Justicia de Mendoza · Nov 2022 · 3 hs.</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Jornada de Derecho Laboral: Cálculo de indemnizaciones laborales</div>
+        <div class="course-source">Academia Estudiantes Digitales · Nov 2022 · 2 hs.</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Jornada: Alcances del principio de especialidad</div>
+        <div class="course-source">Fundación Formarte · Escuela Procesal del Nordeste · Oct 2022</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Taller: Métodos Alternativos de Resolución de Conflictos (Mediación)</div>
+        <div class="course-source">Suprema Corte de Justicia de Mendoza · Oct 2022 · 2 hs.</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Violencia laboral, prevención, sanción y erradicación</div>
+        <div class="course-source">Instituto de Derecho Laboral · Consejo Profesional de Abogados · Sep 2022</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Clases magistrales sobre Derecho Laboral: Indemnizaciones por despido</div>
+        <div class="course-source">Universidad Nacional del Chaco Austral · Sep 2022 · Dr. Emilio Romualdi</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Capacitación: Pagaré y Derecho de Consumo</div>
+        <div class="course-source">Academia Estudiantes Digitales · Ago–Sep 2022 · 3 hs.</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Métodos Alternativos de Resolución de Conflictos</div>
+        <div class="course-source">Redes Alternativas y Estudiantes Digitales · Ago 2022 · 4 hs.</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">XXII Encuentro Regional "Uniendo Metas" — Metodología Naciones Unidas <span style="color:var(--gold);font-size:0.65rem;font-weight:700"> · PONENTE</span></div>
+        <div class="course-source">Asociación Conciencia · Ago 2022 · 40 hs.</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Derecho y Tecnología: Cripto Activos y Neuro Derechos</div>
+        <div class="course-source">Academia Estudiantes Digitales · Oct 2022 · 2,5 hs. · Dr. Julian Madrid y Dra. Federica Morici</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Funciones y herramientas de la Dirección de la Mujer, Género y Diversidad</div>
+        <div class="course-source">Colegio Público de Abogados y Procuradores · Oct 2022 · 3 hs.</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Práctica y Actualidad en el Derecho del Trabajo</div>
+        <div class="course-source">Universidad de Mendoza Sede San Rafael · Feb 2022</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Herramientas Básicas para el manejo de AFIP</div>
+        <div class="course-source">Agrupación de Ciencias Económicas · Abr 2022 · 3 hs.</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Taller Integral de Monotributo</div>
+        <div class="course-source">Agrupación de Ciencias Económicas · May 2022 · 3 hs.</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Taller Teórico Práctico: Acción de Amparo <span style="color:var(--gold);font-size:0.65rem;font-weight:700"> · APROBADO</span></div>
+        <div class="course-source">Casáis Zelis y Asociados · Sep 2020 · Dr. Martin Casáis Zelis</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2020 – 2021 -->
+  <div class="card">
+    <p class="card-subtitle">2020 – 2021</p>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Congreso Virtual de Derecho</div>
+        <div class="course-source">Franja Morada · Centro de Estudiantes Derecho UNCuyo · Jul 2021 · 10 hs.</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Separación Iglesia y Estado</div>
+        <div class="course-source">Facultad de Derecho UNCuyo · Abr 2021 · 2 hs.</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">EI FONDEF y las nuevas perspectivas de defensa nacional</div>
+        <div class="course-source">Instituto de Estudios y Formación Política GESTAR · Nov 2021</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Funciones conjuntas Servicio HyS y Medicina del Trabajo</div>
+        <div class="course-source">PREVENLAB · Jul 2020 · Webinar · Dr. Oscar Mancuca y otros</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Ciencias Sociales con Perspectiva de Género</div>
+        <div class="course-source">Curso Feminista · Ago–Sep 2020 · Part. Dora Barrancos, Thelma Fardín y otras</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Ciclo de talleres: Género, Sexualidad y Derechos Humanos</div>
+        <div class="course-source">Amnistía Internacional Argentina · Nov 2020</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Formación y participación para un proyecto de país federal</div>
+        <div class="course-source">Instituto GESTAR · Nov 2020 · Debate con Hernán Brienza</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Historia de las Instituciones Políticas Argentinas</div>
+        <div class="course-source">Fundación Ciencia y Progreso · Oct–Nov 2020 · 13 hs.</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Perspectiva Moderna en Abogacía</div>
+        <div class="course-source">Fundación Educativa Santísima Trinidad · Ago 2020 · 2 hs.</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Aulas heterogéneas: perspectiva para trabajar en la diversidad</div>
+        <div class="course-source">Fundación Educativa Santísima Trinidad · Ago 2020 · 2 hs.</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Violencia Institucional: La realidad en Argentina</div>
+        <div class="course-source">UNCuyo · Franja Morada · Jun 2020 · 1,5 hs. · Marcelo Puertas y Teresita Villavicencio</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Políticas Públicas LGBTTTIQ+: Avances en Derechos</div>
+        <div class="course-source">UNCuyo · Jun 2020</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Neuro Oratoria — Ciclo de Capacitación Virtual</div>
+        <div class="course-source">Secretaría de Bienestar Universitario UNCuyo · May 2020</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Cruz Roja "Stay Safe" — Voluntaria</div>
+        <div class="course-source">Cruz Roja Filial San Rafael · Jun 2020</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Cómo cobrar honorarios</div>
+        <div class="course-source">Agrupación de Estudiantes y Trabajadores de Derecho · Abr 2020 · Buenos Aires</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Herramientas para superar un aula virtual</div>
+        <div class="course-source">Ciudad Universitaria San Rafael · Jun 2020 · 1 hs. · Coach Pablo González</div>
+      </div>
+    </div>
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Seminario virtual: Métodos de Investigación de Accidentes e Incidentes</div>
+        <div class="course-source">Sep 2020</div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- ===== PUBLICACIONES ===== -->
+<section class="section" id="publicaciones">
+  <div class="section-header">
+    <span class="section-label">05 — Investigación</span>
+    <h2 class="section-title">Publicaciones y Participación</h2>
+    <div class="section-rule"></div>
+  </div>
+
+  <div class="publication-card">
+    <div class="pub-meta" style="margin-bottom:14px">Artículo científico · Revista Pensamiento Penal · 2026</div>
+    <h3 class="pub-title">"La fragmentación punitiva como obstáculo para la resocialización: el caso de la pena única."</h3>
+    <p class="card-text" style="margin-top:16px">Autoría: Dra. Florencia N. Martínez. Publicado en la Revista Pensamiento Penal, una de las revistas de referencia en derecho penal de Argentina. <a href="https://doi.org/10.64178/hm41vf70" target="_blank" style="color:var(--gold);text-decoration:none;font-weight:600;border-bottom:1px solid rgba(201,168,76,0.4);">↓ Descargar artículo</a></p>
+    <div style="margin-top:16px">
+      <span class="card-tag">Derecho Penal</span>
+      <span class="card-tag">Ejecución Penal</span>
+      <span class="card-tag">Resocialización</span>
+      <span class="card-tag">Autoría propia</span>
+    </div>
+  </div>
+
+  <div class="card" style="border-color: rgba(201,168,76,0.25); margin-bottom:20px">
+    <p class="card-date">Investigación · Trayectoria continua</p>
+    <h3 class="card-title">Investigadora Penal</h3>
+    <p class="card-subtitle">Criminología · Fenómenos Carcelarios · Derecho Penal</p>
+    <p class="card-text">Me dedico al análisis crítico de fenómenos carcelarios, estudio de fallos de interés jurisprudencial y seguimiento de tendencias en criminología y dogmática penal. Investigo la intersección entre el sistema penitenciario, las garantías constitucionales y la realidad del encierro, con especial atención a grupos vulnerados y políticas de ejecución penal. Mi trabajo de investigación se nutre del ejercicio profesional cotidiano en la Fiscalía de Instrucción y de una formación académica comprometida con la transformación del sistema penal.</p>
+    <div style="margin-top:14px">
+      <span class="card-tag">Criminología</span>
+      <span class="card-tag">Fenómenos Carcelarios</span>
+      <span class="card-tag">Jurisprudencia Penal</span>
+      <span class="card-tag">Política Criminal</span>
+    </div>
+  </div>
+
+  <div class="card" style="border-color: rgba(201,168,76,0.25); margin-bottom:20px">
+    <p class="card-date">Participación Pasiva · INECIP</p>
+    <h3 class="card-title">#NOMASPRESOS EN COMISARÍAS</h3>
+    <p class="card-subtitle">Instituto de Estudios Comparados en Ciencias Penales y Sociales</p>
+    <p class="card-text">Soy integrante del grupo de trabajo <strong style="color:var(--gold)">#NoMásPre­sosEnComisarías</strong> del INECIP. Participo como veedora en esta iniciativa que denuncia y acompaña la lucha contra el alojamiento de personas privadas de libertad en dependencias policiales, impulsando estándares constitucionales y de derechos humanos en la ejecución penal como actividad académica ad honorem y sin régimen de horario fijo.</p>
+    <div style="margin-top:14px">
+      <span class="card-tag">INECIP</span>
+      <span class="card-tag">Derechos Humanos</span>
+      <span class="card-tag">Ejecución Penal</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HABILIDADES ===== -->
+<section class="section" id="habilidades">
+  <div class="section-header">
+    <span class="section-label">06 — Competencias</span>
+    <h2 class="section-title">Habilidades</h2>
+    <div class="section-rule"></div>
+  </div>
+
+  <div class="card">
+    <p class="card-subtitle" style="margin-bottom:18px">Habilidades Jurídicas</p>
+    <div class="skills-grid">
+      <div class="skill-item"><span class="skill-icon">⚖️</span><div class="skill-name">Investigación e Instrucción Penal</div></div>
+      <div class="skill-item"><span class="skill-icon">🎯</span><div class="skill-name">Litigación Estratégica</div></div>
+      <div class="skill-item"><span class="skill-icon">💻</span><div class="skill-name">Delitos Informáticos</div></div>
+      <div class="skill-item"><span class="skill-icon">🔎</span><div class="skill-name">Evidencia Digital</div></div>
+      <div class="skill-item"><span class="skill-icon">📝</span><div class="skill-name">Argumentación Jurídica</div></div>
+      <div class="skill-item"><span class="skill-icon">👥</span><div class="skill-name">Liderazgo de Equipos</div></div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:20px">
+    <p class="card-subtitle" style="margin-bottom:18px">Habilidades Digitales</p>
+    <div class="skills-grid">
+      <div class="skill-item"><span class="skill-icon">🏛️</span><div class="skill-name">Herramientas Digitales Justicia</div></div>
+      <div class="skill-item"><span class="skill-icon">💰</span><div class="skill-name">ARCA / AFIP</div></div>
+      <div class="skill-item"><span class="skill-icon">🐍</span><div class="skill-name">Python · SQL · Java</div></div>
+      <div class="skill-item"><span class="skill-icon">💼</span><div class="skill-name">Microsoft Office</div></div>
+    </div>
+  </div>
+
+
+</section>
+
+<!-- ===== CONTACTO ===== -->
+<!-- ===== TECH ===== -->
+<section class="section" id="tech">
+  <div class="section-header">
+    <span class="section-label">08 — Tecnología</span>
+    <h2 class="section-title">Desarrollo & Programación</h2>
+    <div class="section-rule"></div>
+  </div>
+
+  <p class="profile-bio" style="margin-bottom:40px">
+    Backend developer con formación en <span class="highlight">Python, JavaScript y CSS</span>. Desarrollo de aplicaciones web con <span class="highlight">React y Django</span>, manejo de frameworks modernos y orientación a soluciones tecnológicas aplicadas al ámbito jurídico.
+  </p>
+
+  <!-- Lenguajes -->
+  <div class="card">
+    <p class="card-subtitle" style="margin-bottom:18px">Lenguajes & Tecnologías</p>
+    <div class="skills-grid">
+      <div class="skill-item">
+        <span class="skill-icon">🐍</span>
+        <div class="skill-name">Python</div>
+      </div>
+      <div class="skill-item">
+        <span class="skill-icon">⚡</span>
+        <div class="skill-name">JavaScript</div>
+      </div>
+      <div class="skill-item">
+        <span class="skill-icon">🎨</span>
+        <div class="skill-name">CSS</div>
+      </div>
+      <div class="skill-item">
+        <span class="skill-icon">☕</span>
+        <div class="skill-name">Java</div>
+      </div>
+      <div class="skill-item">
+        <span class="skill-icon">🗄️</span>
+        <div class="skill-name">SQL</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Frameworks -->
+  <div class="card" style="margin-top:20px">
+    <p class="card-subtitle" style="margin-bottom:18px">Frameworks & Desarrollo Web</p>
+    <div class="skills-grid">
+      <div class="skill-item">
+        <span class="skill-icon">⚛️</span>
+        <div class="skill-name">React</div>
+      </div>
+      <div class="skill-item">
+        <span class="skill-icon">🦄</span>
+        <div class="skill-name">Django</div>
+      </div>
+      <div class="skill-item">
+        <span class="skill-icon">🌐</span>
+        <div class="skill-name">Páginas Web</div>
+      </div>
+      <div class="skill-item">
+        <span class="skill-icon">🔧</span>
+        <div class="skill-name">Backend Dev</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Formación tech -->
+  <div class="card" style="margin-top:20px">
+    <p class="card-subtitle" style="margin-bottom:6px">Formación en Programación</p>
+    <p class="card-date" style="margin-bottom:18px">Cursos acreditados</p>
+
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Python — Programación Backend <span style="color:var(--gold);font-size:0.65rem;font-weight:700"> · En curso</span></div>
+        <div class="course-source">Fundación Educativa Santísima Trinidad · San Rafael, Mendoza</div>
+      </div>
+    </div>
+
+    <div class="course-item">
+      <div class="course-dot"></div>
+      <div class="course-content">
+        <div class="course-name">Desarrollo Web — Programación & Tecnología</div>
+        <div class="course-source">Coderhouse · Formación intensiva en tecnologías web modernas</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tech + Derecho -->
+  <div class="card" style="margin-top:20px; border-color: rgba(201,168,76,0.3);">
+    <p class="card-date">Intersección única</p>
+    <h3 class="card-title">Tecnología aplicada al Derecho</h3>
+    <p class="card-subtitle">Legal Tech · Ciberdelitos · Evidencia Digital</p>
+    <p class="card-text">La combinación de formación jurídica especializada en ciberdelitos y capacidades técnicas en programación permite una comprensión integral de los delitos informáticos: desde el análisis de evidencia digital hasta el entendimiento profundo de los sistemas, protocolos y vulnerabilidades que subyacen a los hechos investigados.</p>
+    <div style="margin-top:14px">
+      <span class="card-tag">Legal Tech</span>
+      <span class="card-tag">Evidencia Digital</span>
+      <span class="card-tag">Análisis Forense</span>
+      <span class="card-tag">Ciberdelitos</span>
+    </div>
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-logo">DRA. FLORENCIA N. MARTÍNEZ</div>
+  <p class="footer-copy">Abogada</p>
+</footer>
+
+<script>
+  function showSection(id) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    const target = document.getElementById(id);
+    if (target) {
+      target.classList.add('active');
+      target.querySelectorAll('.card, .publication-card, .badge').forEach((el, i) => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(16px)';
+        setTimeout(() => {
+          el.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+          el.style.opacity = '1';
+          el.style.transform = 'translateY(0)';
+        }, i * 80);
+      });
+      setTimeout(() => target.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+      setTimeout(() => addGlowListeners(), 800);
+    }
+  }
+
+  // Fade hero gradient on scroll
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    const hero = document.querySelector('.hero');
+    if (!hero) return;
+    const heroH = hero.offsetHeight;
+    const fadeStart = heroH * 0.2;
+    const fadeEnd = heroH * 0.7;
+    let opacity = 1;
+    if (scrollY > fadeStart) {
+      opacity = Math.max(0, 1 - (scrollY - fadeStart) / (fadeEnd - fadeStart));
+    }
+    // Apply to ::after via a CSS custom property workaround using a real overlay div
+    const overlay = document.getElementById('hero-glow');
+    if (overlay) overlay.style.opacity = opacity;
+  }, { passive: true });
+
+  function addGlowListeners() {
+    const glowTargets = document.querySelectorAll('.card, .badge, .publication-card, .skill-item');
+    glowTargets.forEach(el => {
+      if (el._glowBound) return;
+      el._glowBound = true;
+      el.addEventListener('touchstart', () => {
+        el.classList.add('touched');
+      }, { passive: true });
+      el.addEventListener('touchend', () => {
+        setTimeout(() => el.classList.remove('touched'), 500);
+      }, { passive: true });
+      el.addEventListener('mousedown', () => {
+        el.classList.add('touched');
+      });
+      el.addEventListener('mouseup', () => {
+        setTimeout(() => el.classList.remove('touched'), 500);
+      });
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.pill').forEach(pill => {
+      pill.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelectorAll('.pill').forEach(p => p.style.color = '');
+        this.style.color = 'var(--gold-light)';
+      });
+    });
+    addGlowListeners();
+  });
+</script>
+
+</body>
+</html>
